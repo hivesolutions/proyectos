@@ -11,7 +11,7 @@
     <body class="ux">
         <div class="contents">{{ contents|safe }}</div>
         <div class="footer">
-            <div class="product">n</div>
+            <div class="product">{{ title[0] }}</div>
             <div class="slogan">proudly built by <a href="http://hive.pt">Hive Solutions</a></div>
         </div>
     </body>
