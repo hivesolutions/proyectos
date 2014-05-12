@@ -12,11 +12,11 @@ def get_api():
     )
     return api
 
-def all_projects():
+def all_repos():
     api = get_api()
-    self_repos = api.self_repos()
+    all_repos = api.self_repos()
     self_orgs = api.self_orgs()
     for org in self_orgs:
         org_repos = api.repos_org(org["login"])
-        self_repos.extend(org_repos)
-    return self_repos
+        all_repos.extend(org_repos)
+    return all_repos
