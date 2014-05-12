@@ -1,9 +1,16 @@
 @charset "utf-8";
 
 ul.repos {
-	text-align: left;
+    text-align: left;
+}
+
+ul.repos li {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 16px 0px 16px 0px;
+    padding: 0px 0px 0px 0px;
 }
 
 ul.repos li:hover {
-	background-color: transparent;
+    background-color: transparent;
 }
