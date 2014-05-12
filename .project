@@ -5,6 +5,7 @@
 	<projects>
 		<project>appier</project>
 		<project>appier_extras</project>
+		<project>github_api</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
