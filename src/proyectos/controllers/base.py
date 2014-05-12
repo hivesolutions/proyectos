@@ -28,5 +28,6 @@ class BaseController(appier.Controller):
 
         return self.template(
             "markdown.html.tpl",
+            title = page,
             contents = value
         )
