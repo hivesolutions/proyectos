@@ -177,6 +177,7 @@ pre[class*="language-"] {
     font-size: 13px;
     font-style: normal;
     padding: 3px 8px 3px 8px;
+    border: 1px solid #dadada;
 }
 
 .footer {
