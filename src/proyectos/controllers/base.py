@@ -14,14 +14,11 @@ class BaseController(appier.Controller):
 
     @appier.route("/repos", "GET")
     def repos(self):
+        repos = proyectos.all_repos()
         return self.template(
-            "repos.html.tpl"
+            "repos.html.tpl",
+            repos = repos
         )
-
-    @appier.route("/repos.json", "GET", json = True)
-    def repos_json(self):
-        projects = proyectos.all_projects()
-        return projects
 
     @appier.route("/<str:page>.md", "GET")
     def render(self, page):
