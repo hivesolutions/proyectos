@@ -7,10 +7,6 @@ import proyectos
 
 class RepoController(appier.Controller):
 
-    def __init__(self, owner, *args, **kwargs):
-        appier.Controller.__init__(self, owner, *args, **kwargs)
-        self.api = None
-
     @appier.route("/repos", "GET")
     def list(self):
         repos = proyectos.Repo.find(sort = [("full_name", 1),])

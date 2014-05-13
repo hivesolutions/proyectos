@@ -10,12 +10,8 @@ import proyectos
 
 class BaseController(appier.Controller):
 
-    def __init__(self, owner, *args, **kwargs):
-        appier.Controller.__init__(self, owner, *args, **kwargs)
-        self.api = None
-
-    @appier.route("/<str:repo>/<str:page>.md", "GET")
-    @appier.route("/<str:repo>/?", "GET")
+    @appier.route("/render/<str:repo>/<str:page>.md", "GET")
+    @appier.route("/render/<str:repo>/?", "GET")
     def render(self, repo, page = None):
         buffer = appier.BytesIO()
 
@@ -42,8 +38,3 @@ class BaseController(appier.Controller):
             title = page or repo,
             contents = value
         )
-
-    @appier.route("/render/<str:repo>/<str:page>.md", "GET")
-    @appier.route("/render/<str:repo>/?", "GET")
-    def _render(self, repo, page = None):
-        return self.render(repo = repo, page = page)
