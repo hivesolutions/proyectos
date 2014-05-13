@@ -63,4 +63,5 @@ class Scheduler(threading.Thread):
         proyectos.sync_repos(api = self.github, ensure = True)
 
     def update_repos(self):
-        pass
+        self.owner.logger.debug("Updating github repos ...")
+        proyectos.update_repos()
