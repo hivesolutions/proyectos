@@ -15,7 +15,7 @@ def get_api():
     return api
 
 def update_repos():
-    repos = proyectos.Repo.find()
+    repos = proyectos.Repo.find(status = True)
     for repo in repos: repo.update()
 
 def sync_repos(api = None, ensure = True):
