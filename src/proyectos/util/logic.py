@@ -14,8 +14,12 @@ def get_api():
     )
     return api
 
-def all_repos(ensure = True):
-    api = get_api()
+def update_repos():
+    repos = proyectos.Repo.find()
+    for repo in repos: repo.update()
+
+def sync_repos(api = None, ensure = True):
+    api = api or get_api()
     all_repos = api.self_repos()
     self_orgs = api.self_orgs()
     for org in self_orgs:
@@ -40,6 +44,8 @@ def ensure_repo(repo):
     _repo = proyectos.Repo(
         name = repo["name"],
         full_name = repo["full_name"],
+        html_url = repo["html_url"],
+        clone_url = repo["clone_url"],
         status = False
     )
     _repo.save()
