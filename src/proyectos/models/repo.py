@@ -16,6 +16,10 @@ class Repo(appier_extras.admin.Base):
         immutable = True
     )
 
+    html_url = appier.field(
+        immutable = True
+    )
+
     status = appier.field(
         type = bool,
         index = True
@@ -30,9 +34,20 @@ class Repo(appier_extras.admin.Base):
             appier.not_null("full_name"),
             appier.not_empty("full_name"),
 
+            appier.not_null("html_url"),
+            appier.not_empty("html_url"),
+
             appier.not_null("status")
         ]
 
     @classmethod
     def list_names(cls):
         return ["full_name", "status"]
+
+    def enable_s(self):
+        self.status = True
+        self.save()
+
+    def disable_s(self):
+        self.status = False
+        self.save()
