@@ -13,7 +13,7 @@ class RepoController(appier.Controller):
 
     @appier.route("/repos", "GET")
     def list(self):
-        repos = proyectos.Repo.find(sort = (("full_name", -1),))
+        repos = proyectos.Repo.find(sort = [("full_name", 1),])
         return self.template(
             "repo/list.html.tpl",
             repos = repos
