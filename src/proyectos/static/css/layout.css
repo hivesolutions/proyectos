@@ -5,7 +5,7 @@ ul.repos {
 }
 
 ul.repos li {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     margin: 16px 0px 16px 0px;
     padding: 0px 0px 0px 0px;
@@ -13,4 +13,9 @@ ul.repos li {
 
 ul.repos li:hover {
     background-color: transparent;
+}
+
+input[type="checkbox"].button:hover {
+    border-bottom: none;
+    padding-bottom: 0px;
 }
