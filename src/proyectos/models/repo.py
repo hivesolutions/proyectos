@@ -22,7 +22,9 @@ class Repo(appier_extras.admin.Base):
 
     status = appier.field(
         type = bool,
-        index = True
+        index = True,
+        meta = "enum",
+        enum = appier_extras.admin.Base.ENABLE_S
     )
 
     @classmethod
