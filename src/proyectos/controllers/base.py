@@ -13,7 +13,7 @@ class BaseController(appier.Controller):
     @appier.route("/render/<str:repo>/<str:page>.md", "GET")
     @appier.route("/render/<str:repo>/?", "GET")
     def render(self, repo, page = None):
-        buffer = appier.BytesIO()
+        buffer = appier.StringIO()
 
         _repo = proyectos.Repo.get(name = repo)
         repo_path = _repo.repo_path()
