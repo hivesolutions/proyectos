@@ -4,21 +4,11 @@
 import appier
 import appier_extras
 
-import proyectos
-
 class BaseController(appier.Controller):
 
     def __init__(self, owner, *args, **kwargs):
         appier.Controller.__init__(self, owner, *args, **kwargs)
         self.api = None
-
-    @appier.route("/repos", "GET")
-    def repos(self):
-        repos = proyectos.all_repos()
-        return self.template(
-            "repos.html.tpl",
-            repos = repos
-        )
 
     @appier.route("/<str:page>.md", "GET")
     def render(self, page):
