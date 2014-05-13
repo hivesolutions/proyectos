@@ -17,7 +17,8 @@ class Repo(appier_extras.admin.Base):
     )
 
     html_url = appier.field(
-        immutable = True
+        immutable = True,
+        meta = "url"
     )
 
     status = appier.field(
