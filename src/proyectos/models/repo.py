@@ -29,6 +29,10 @@ class Repo(appier_extras.admin.Base):
         meta = "url"
     )
 
+    ssh_url = appier.field(
+        immutable = True
+    )
+
     status = appier.field(
         type = bool,
         index = True,
@@ -83,7 +87,7 @@ class Repo(appier_extras.admin.Base):
             (self.full_name, repo_path)
         )
 
-        if is_new: cmd = ["git", "clone", self.clone_url, repo_path]
+        if is_new: cmd = ["git", "clone", self.ssh_url, repo_path]
         else: cmd = ["git", "pull"]
 
         if is_new: popen = subprocess.Popen(cmd)
@@ -93,7 +97,7 @@ class Repo(appier_extras.admin.Base):
         if result == 0: return
 
         cmd_s = " ".join(cmd)
-        raise appier.OperationalError(message = "Problem executing command '%s'" % cmd_s)
+        raise appier.OperationalError(message = "Problem executing command: '%s'" % cmd_s)
 
     def repo_path(self):
         repos_path = appier.conf("REPOS_PATH", "repos")

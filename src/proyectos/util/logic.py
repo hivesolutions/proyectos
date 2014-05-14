@@ -46,6 +46,7 @@ def ensure_repo(repo):
         full_name = repo["full_name"],
         html_url = repo["html_url"],
         clone_url = repo["clone_url"],
+        ssh_url = repo["ssh_url"],
         status = False
     )
     _repo.save()
