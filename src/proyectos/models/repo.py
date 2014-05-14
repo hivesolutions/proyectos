@@ -83,8 +83,13 @@ class Repo(appier_extras.admin.Base):
             (self.full_name, repo_path)
         )
 
-        if is_new: subprocess.call(["git", "clone", self.clone_url, repo_path])
-        else: subprocess.call(["git", "-C", repo_path, "pull"])
+        if is_new: popen = subprocess.Popen(["git", "clone", self.clone_url, repo_path])
+        else: popen = subprocess.Popen(["git", "pull"], cwd = repo_path)
+
+        result = popen.wait()
+        if result == 0: return
+
+        raise appier.OperationalError(message = "Problem executing command")
 
     def repo_path(self):
         repos_path = appier.conf("REPOS_PATH", "repos")
