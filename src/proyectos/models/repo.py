@@ -74,8 +74,14 @@ class Repo(appier_extras.admin.Base):
         is_new = not os.path.exists(repo_path)
         if is_new: os.makedirs(repo_path)
 
-        if is_new: self.logger.debug("Cloning '%s' ..." % self.full_name)
-        else: self.logger.debug("Git pulling '%s' ..." % self.full_name)
+        if is_new: self.logger.debug(
+            "Cloning '%s' into '%s' ..." %\
+            (self.full_name, repo_path)
+        )
+        else: self.logger.debug(
+            "Git pulling '%s' into '%s' ..." %\
+            (self.full_name, repo_path)
+        )
 
         if is_new: subprocess.call(["git", "clone", self.clone_url, repo_path])
         else: subprocess.call(["git", "-C", repo_path, "pull"])
