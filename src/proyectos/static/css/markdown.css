@@ -177,7 +177,8 @@ pre[class*="language-"] {
     font-family: Consolas, Monaco;
     font-size: 13px;
     font-style: normal;
-    padding: 3px 8px 3px 8px;
+    margin: 0px 4px 0px 4px;
+    padding: 3px 6px 3px 6px;
 }
 
 .footer {
