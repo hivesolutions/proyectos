@@ -13,7 +13,7 @@ class BaseController(appier.Controller):
     @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):page>.md", "GET")
     @appier.route("/render/<str:repo>/?", "GET")
     def render(self, repo, page = None):
-        if page: title = "%s/%s" % (repo, page.split("/")[-1])
+        if page: title = "%s / %s" % (repo, page.split("/")[-1])
         else: title = repo
 
         buffer = appier.StringIO()
