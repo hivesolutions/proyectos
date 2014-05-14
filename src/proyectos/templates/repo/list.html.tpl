@@ -1,18 +1,6 @@
-{% extends "partials/layout.static.html.tpl" %}
+{% extends "base.html.tpl" %}
 {% block title %}repos{% endblock %}
 {% block name %}Repos{% endblock %}
-
-{% block head %}
-    {{ super() }}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/layout.css') }}" />
-{% endblock %}
-
-
-{% block links %}
-    <a class="selected" href="#">repos</a>
-{% endblock %}
-
-
 {% block content %}
     <div class="quote">
         We're only showing your public repositories below, you can find your private projects on GitHub.<br/>
