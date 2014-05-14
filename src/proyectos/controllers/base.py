@@ -13,6 +13,9 @@ class BaseController(appier.Controller):
     @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):page>.md", "GET")
     @appier.route("/render/<str:repo>/?", "GET")
     def render(self, repo, page = None):
+        if page: title = "%s/%s" % (repo, page.split("/")[-1][:-3])
+        else: title = repo
+
         buffer = appier.StringIO()
 
         _repo = proyectos.Repo.get(name = repo)
@@ -35,6 +38,6 @@ class BaseController(appier.Controller):
 
         return self.template(
             "markdown.html.tpl",
-            title = page or repo,
+            title = title,
             contents = value
         )
