@@ -27,6 +27,7 @@ class Scheduler(appier.Scheduler):
         self.update_repos()
 
     def load(self):
+        appier.Scheduler.load(self)
         self.load_github()
 
     def load_github(self):
