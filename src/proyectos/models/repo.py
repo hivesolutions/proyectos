@@ -79,11 +79,11 @@ class Repo(appier_extras.admin.Base):
         if is_new: os.makedirs(repo_path)
 
         if is_new: self.logger.debug(
-            "Cloning '%s' into '%s' ..." %\
+            "Cloning '%s' into '%s' ..." %
             (self.full_name, repo_path)
         )
         else: self.logger.debug(
-            "Git pulling '%s' into '%s' ..." %\
+            "Git pulling '%s' into '%s' ..." %
             (self.full_name, repo_path)
         )
 
