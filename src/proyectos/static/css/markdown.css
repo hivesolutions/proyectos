@@ -118,7 +118,7 @@ body.border {
 }
 
 body.mobile {
-	width: 100%;
+    width: 100%;
 }
 
 h1 {
@@ -197,6 +197,10 @@ pre[class*="language-"] {
     margin: 32px auto 0px auto;
     text-transform: lowercase;
     width: 960px;
+}
+
+body.mobile .footer .product {
+    width: 100%;
 }
 
 .footer .slogan {
