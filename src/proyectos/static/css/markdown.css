@@ -118,6 +118,8 @@ body.border {
 }
 
 body.mobile {
+    box-sizing: border-box;
+    padding: 0px 12px 0px 12px;
     width: 100%;
 }
 
