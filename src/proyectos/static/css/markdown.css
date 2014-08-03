@@ -192,7 +192,7 @@ pre[class*="language-"] {
 }
 
 .footer .product {
-    background: transparent url(../images/footer.png) no-repeat;
+    background: transparent url(../images/footer.png) no-repeat center center;
     color: #ffffff;
     font-weight: bold;
     height: 24px;
