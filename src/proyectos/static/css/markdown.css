@@ -117,7 +117,8 @@ body.border {
     padding-right: 40px;
 }
 
-body.mobile {
+body.mobile,
+body.tablet {
     box-sizing: border-box;
     padding: 0px 12px 0px 12px;
     width: 100%;
@@ -201,7 +202,8 @@ pre[class*="language-"] {
     width: 960px;
 }
 
-body.mobile .footer .product {
+body.mobile .footer .product,
+body.tablet .footer .product {
     width: 100%;
 }
 
