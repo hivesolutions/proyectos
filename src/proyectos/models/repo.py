@@ -109,7 +109,7 @@ class Repo(appier_extras.admin.Base):
         has_path = os.path.exists(repo_path)
         if has_path: return repo_path
 
-        raise appier.OperationalError(message = "No repo found")
+        raise appier.OperationalError(message = "No repo path found")
 
     def index_path(self):
         repo_path = self.repo_path(verify = True)
