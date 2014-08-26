@@ -99,13 +99,20 @@ class Repo(appier_extras.admin.Base):
         cmd_s = " ".join(cmd)
         raise appier.OperationalError(message = "Problem executing command: '%s'" % cmd_s)
 
-    def repo_path(self):
+    def repo_path(self, verify = False):
         repos_path = appier.conf("REPOS_PATH", "repos")
         repos_path = os.path.abspath(repos_path)
-        return os.path.join(repos_path, self.name)
+        repo_path = os.path.join(repos_path, self.name)
+
+        if not verify: return repo_path
+
+        has_path = os.path.exists(repo_path)
+        if has_path: return repo_path
+
+        raise appier.OperationalError(message = "No repo found")
 
     def index_path(self):
-        repo_path = self.repo_path()
+        repo_path = self.repo_path(verify = True)
 
         lower_path = os.path.join(repo_path, "readme.md")
         if os.path.exists(lower_path): return lower_path
