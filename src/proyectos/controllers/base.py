@@ -11,6 +11,21 @@ import proyectos
 
 class BaseController(appier.Controller):
 
+    @appier.route("/render/<str:repo>/favicon", "GET")
+    def favicon(self, repo):
+        _repo = proyectos.Repo.get(
+            fields = ("favicon",),
+            rules = False,
+            name = repo
+        )
+        favicon = _repo.favicon
+        if not favicon: return self.send_static("images/favicon.ico")
+        else: return self.send_file(
+            favicon.data,
+            content_type = favicon.mime,
+            etag = favicon.etag
+        )
+
     @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):page>.md", "GET")
     @appier.route("/render/<str:repo>/?", "GET")
     def render(self, repo, page = None):
