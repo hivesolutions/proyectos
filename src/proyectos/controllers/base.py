@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import mimetypes
 
 import appier
 import appier_extras
@@ -22,6 +23,11 @@ class BaseController(appier.Controller):
         repo_path = _repo.repo_path()
         index_path = _repo.index_path()
         page_path = os.path.join(repo_path, page + ".md") if page else index_path
+
+        if not os.path.exists(page_path): raise appier.NotFoundError(
+            message = "Page '%s' not found in repository" % page_path,
+            code = 404
+        )
 
         parser = appier_extras.MarkdownParser()
         generator = appier_extras.MarkdownHTML(file = buffer)
@@ -44,14 +50,24 @@ class BaseController(appier.Controller):
 
     @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):reference>", "GET")
     def resource(self, repo, reference):
-        buffer = appier.StringIO()
-
         _repo = proyectos.Repo.get(name = repo)
         repo_path = _repo.repo_path()
         resource_path = os.path.join(repo_path, reference)
 
-        file = open(resource_path, "rb")
+        if not os.path.exists(resource_path): raise appier.NotFoundError(
+            message = "Resource '%s' not found in repository" % reference,
+            code = 404
+        )
 
+        type, _encoding = mimetypes.guess_type(
+            resource_path, strict = True
+        )
+        self.request.set_content_type(type)
+
+        size = os.path.getsize(resource_path)
+        yield size
+
+        file = open(resource_path, "rb")
         try:
             while True:
                 contents = file.read(4096)
