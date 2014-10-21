@@ -51,7 +51,11 @@ class BaseController(appier.Controller):
         resource_path = os.path.join(repo_path, reference)
 
         file = open(resource_path, "rb")
-        try: contents = file.read()
-        finally: file.close()
 
-        return contents
+        try:
+            while True:
+                contents = file.read(4096)
+                if not contents: break
+                yield contents
+        finally:
+            file.close()
