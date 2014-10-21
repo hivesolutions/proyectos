@@ -17,6 +17,7 @@ class BaseController(appier.Controller):
         buffer = appier.StringIO()
 
         _repo = proyectos.Repo.get(name = repo)
+        description = _repo.description
         repo_path = _repo.repo_path()
         index_path = _repo.index_path()
         page_path = os.path.join(repo_path, page + ".md") if page else index_path
@@ -45,6 +46,7 @@ class BaseController(appier.Controller):
         return self.template(
             "markdown.html.tpl",
             title = title,
+            description = description,
             contents = value
         )
 
