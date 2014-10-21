@@ -19,6 +19,10 @@ class Repo(appier_extras.admin.Base):
         immutable = True
     )
 
+    title = appier.field(
+        index = True
+    )
+
     html_url = appier.field(
         immutable = True,
         meta = "url"
@@ -129,3 +133,6 @@ class Repo(appier_extras.admin.Base):
             message = "No index path found",
             code = 404
         )
+
+    def repr(self):
+        return self.title if self.title else self.name

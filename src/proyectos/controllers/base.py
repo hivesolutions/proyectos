@@ -14,15 +14,15 @@ class BaseController(appier.Controller):
     @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):page>.md", "GET")
     @appier.route("/render/<str:repo>/?", "GET")
     def render(self, repo, page = None):
-        if page: title = "%s / %s" % (repo, page.split("/")[-1])
-        else: title = repo
-
         buffer = appier.StringIO()
 
         _repo = proyectos.Repo.get(name = repo)
         repo_path = _repo.repo_path()
         index_path = _repo.index_path()
         page_path = os.path.join(repo_path, page + ".md") if page else index_path
+
+        if page: title = "%s / %s" % (_repo.repr(), page.split("/")[-1])
+        else: title = _repo.repr()
 
         if not os.path.exists(page_path): raise appier.NotFoundError(
             message = "Page '%s' not found in repository" % page_path,
