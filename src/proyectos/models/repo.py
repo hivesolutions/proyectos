@@ -44,6 +44,11 @@ class Repo(appier_extras.admin.Base):
         enum = appier_extras.admin.Base.ENABLE_S
     )
 
+    favicon = appier.field(
+        type = appier.File,
+        private = True
+    )
+
     @classmethod
     def validate(cls):
         return super(Repo, cls).validate() + [

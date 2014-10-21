@@ -9,7 +9,7 @@
         <title>{{ title }}</title>
         <link rel="stylesheet" type="text/css" href="//libs.bemisc.com/uxf/css/ux-min.css" />
         <link rel="stylesheet" href="{{ url_for('static', filename = 'css/markdown.css') }}" media="all" />
-        <link rel="shortcut icon" href="{{ url_for('static', filename = 'images/favicon.ico') }}" />
+        <link rel="shortcut icon" href="{{ url_for('base.favicon', repo = name) }}" />
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript" src="//libs.bemisc.com/uxf/js/ux-min.js"></script>
     </head>
