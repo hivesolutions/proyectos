@@ -41,3 +41,17 @@ class BaseController(appier.Controller):
             title = title,
             contents = value
         )
+
+    @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):reference>", "GET")
+    def resource(self, repo, reference):
+        buffer = appier.StringIO()
+
+        _repo = proyectos.Repo.get(name = repo)
+        repo_path = _repo.repo_path()
+        resource_path = os.path.join(repo_path, reference)
+
+        file = open(resource_path, "rb")
+        try: contents = file.read()
+        finally: file.close()
+
+        return contents
