@@ -199,8 +199,9 @@ pre[class*="language-"] {
     font-weight: bold;
     height: 24px;
     margin: 32px auto 0px auto;
+    max-width: 960px;
+    min-width: 240px;
     text-transform: lowercase;
-    width: 960px;
 }
 
 body.mobile .footer .product,
