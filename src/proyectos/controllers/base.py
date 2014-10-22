@@ -34,6 +34,7 @@ class BaseController(appier.Controller):
         _repo = proyectos.Repo.get(name = repo)
         name = _repo.name
         description = _repo.description
+        ga = _repo.ga or appier.conf("GA")
         repo_path = _repo.repo_path()
         index_path = _repo.index_path()
         page_path = os.path.join(repo_path, page + ".md") if page else index_path
@@ -65,7 +66,7 @@ class BaseController(appier.Controller):
             title = title,
             description = description,
             contents = value,
-            ga = appier.conf("GA")
+            ga = ga
         )
 
     @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):reference>", "GET")
