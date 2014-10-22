@@ -12,6 +12,7 @@
         <link rel="shortcut icon" href="{{ url_for('base.favicon', repo = name) }}" />
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript" src="//libs.bemisc.com/uxf/js/ux-min.js"></script>
+
     </head>
     <body class="ux">
         <div class="contents">{{ contents|safe }}</div>
@@ -19,5 +20,6 @@
             <div class="product">{{ title[0] }}</div>
             <div class="slogan">proudly built by <a href="http://hive.pt">Hive Solutions</a></div>
         </div>
+        {% include "analytics.html.tpl" %}
     </body>
 </html>

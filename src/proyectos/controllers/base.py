@@ -64,7 +64,8 @@ class BaseController(appier.Controller):
             name = name,
             title = title,
             description = description,
-            contents = value
+            contents = value,
+            ga = appier.conf("GA")
         )
 
     @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):reference>", "GET")
