@@ -27,7 +27,7 @@ class BaseController(appier.Controller):
         )
 
     @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):page>.md", "GET")
-    @appier.route("/render/<str:repo>/?", "GET")
+    @appier.route("/render/<str:repo>/", "GET")
     def render(self, repo, page = None):
         buffer = appier.StringIO()
 
