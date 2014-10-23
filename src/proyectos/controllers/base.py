@@ -34,6 +34,7 @@ class BaseController(appier.Controller):
         _repo = proyectos.Repo.get(name = repo)
         name = _repo.name
         description = _repo.description
+        github = _repo.html_url
         ga = _repo.ga or appier.conf("GA")
         repo_path = _repo.repo_path()
         index_path = _repo.index_path()
@@ -66,6 +67,7 @@ class BaseController(appier.Controller):
             title = title,
             description = description,
             contents = value,
+            github = github,
             ga = ga
         )
 
