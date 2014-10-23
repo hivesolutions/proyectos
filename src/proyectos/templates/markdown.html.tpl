@@ -14,12 +14,12 @@
         <script type="text/javascript" src="//libs.bemisc.com/uxf/js/ux-min.js"></script>
 
     </head>
-    <body class="ux">
+    <body class="ux flat">
         {% if github %}
             <a href="{{ github }}">
                 <img style="position: fixed; top: 0; right: 0; border: 0;"
                      src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
-                     alt="Fork me on GitHub">
+                     alt="Fork me on GitHub" />
             </a>
         {% endif %}
         <div class="contents">{{ contents|safe }}</div>
