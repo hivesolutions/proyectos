@@ -105,11 +105,11 @@ body {
     -webkit-font-smoothing: antialiased;
     font-style: italic;
     line-height: 26px;
+    margin: 0px 0px 0px 0px;
 }
 
 body.side-color {
     background-color: #f4f4f4;
-    margin: 0px 0px 0px 0px;
 }
 
 body.uwide,
