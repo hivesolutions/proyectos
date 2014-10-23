@@ -14,7 +14,7 @@
         <script type="text/javascript" src="//libs.bemisc.com/uxf/js/ux-min.js"></script>
         <script type="text/javascript" src="{{ url_for('static', filename = 'js/markdown.js') }}"></script>
     </head>
-    <body class="ux flat">
+    <body class="ux wait-load flat">
         {% if github %}
             <a href="{{ github }}">
                 <img class="github-fork" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
