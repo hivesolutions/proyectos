@@ -15,7 +15,7 @@
         <script type="text/javascript" src="{{ url_for('static', filename = 'js/markdown.js') }}"></script>
     </head>
     <body class="ux wait-load side-color flat">
-        <div class="container">
+        <div class="wrapper">
             {% if github %}
                 <a href="{{ github }}">
                     <img class="github-fork" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
