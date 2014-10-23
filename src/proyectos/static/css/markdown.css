@@ -253,7 +253,7 @@ body.side-color .wrapper {
     -webkit-box-shadow: 0px 0px 4px #bbbbbb;
 }
 
-body.mobile, .wrapper
+body.mobile .wrapper,
 body.tablet .wrapper {
     box-sizing: border-box;
     padding: 0px 12px 0px 12px;
