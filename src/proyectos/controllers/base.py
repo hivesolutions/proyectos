@@ -26,6 +26,12 @@ class BaseController(appier.Controller):
             etag = favicon.etag
         )
 
+    @appier.route("/render/<str:repo>", "GET")
+    def render_base(self, repo):
+        return self.redirect(
+            self.url_for("base.render", repo = repo)
+        )
+
     @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):page>.md", "GET")
     @appier.route("/render/<str:repo>/", "GET")
     def render(self, repo, page = None):
