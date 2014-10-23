@@ -204,6 +204,18 @@ body.flat :not(pre) > code[class*="language-"] {
     border: none;
 }
 
+.github-fork {
+    border: 0px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+}
+
+body.mobile .github-fork,
+body.tablet .github-fork {
+    display: none;
+}
+
 .footer {
     text-align: center;
 }
