@@ -198,8 +198,8 @@ body.flat :not(pre) > code[class*="language-"] {
     border: 1px solid #e6e6e6;
     cursor: pointer;
     float: right;
-    padding: 6px 12px 6px 12px;
-    max-wdith: 120px;
+    font-size: 12px;
+    padding: 2px 10px 2px 10px;
 }
 
 .toggler:hover {
@@ -229,7 +229,7 @@ body.tablet .github-fork {
     margin: 0px auto 0px auto;
     max-width: 820px;
     min-width: 240px;
-    padding: 12px 24px 12px 24px;
+    padding: 8px 24px 8px 24px;
 }
 
 body.wide .wrapper {
