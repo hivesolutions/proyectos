@@ -219,6 +219,19 @@ body.flat :not(pre) > code[class*="language-"] {
     border: none;
 }
 
+.toggler {
+    background-color: #f6f6f6;
+    border: 1px solid #e6e6e6;
+    cursor: pointer;
+    float: right;
+    padding: 6px 12px 6px 12px;
+    max-wdith: 120px;
+}
+
+.toggler:hover {
+    border: 1px solid #c6c6c6;
+}
+
 .github-fork {
     border: 0px;
     position: fixed;
@@ -226,6 +239,7 @@ body.flat :not(pre) > code[class*="language-"] {
     top: 0px;
 }
 
+body.uwide .github-fork,
 body.mobile .github-fork,
 body.tablet .github-fork {
     display: none;

@@ -12,7 +12,7 @@
         <link rel="shortcut icon" href="{{ url_for('base.favicon', repo = name) }}" />
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript" src="//libs.bemisc.com/uxf/js/ux-min.js"></script>
-
+        <script type="text/javascript" src="{{ url_for('static', filename = 'js/markdown.js') }}"></script>
     </head>
     <body class="ux flat">
         {% if github %}
@@ -21,6 +21,7 @@
                      alt="Fork me on GitHub" />
             </a>
         {% endif %}
+        <span class="toggler">maximize</span>
         <div class="contents">{{ contents|safe }}</div>
         <div class="footer">
             <div class="product">{{ title[0] }}</div>
