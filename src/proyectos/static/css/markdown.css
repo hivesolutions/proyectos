@@ -213,7 +213,7 @@ body.flat :not(pre) > code[class*="language-"] {
     cursor: pointer;
     height: 20px;
     margin-top: 8px;
-    opacity: 0.4;
+    opacity: 0.5;
     padding: 0px 0px 0px 0px;
     width: 20px;
 }
