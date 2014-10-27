@@ -14,13 +14,16 @@
                     var element = jQuery(this);
                     var _body = element.parents("body");
 
+                    var isIcon = element.hasClass("icon");
                     var isWide = _body.hasClass("uwide");
                     if (isWide) {
                         _body.removeClass("uwide");
-                        element.text("maximize");
+                        element.removeClass("minimize");
+                        !isIcon && element.text("maximize");
                     } else {
                         _body.addClass("uwide");
-                        element.text("minimize");
+                        element.addClass("minimize");
+                        !isIcon && element.text("minimize");
                     }
                 });
     };

@@ -207,6 +207,25 @@ body.flat :not(pre) > code[class*="language-"] {
     border: 1px solid #c6c6c6;
 }
 
+.toggler.icon {
+    background: transparent url(../images/toggler.png) no-repeat left 0px;
+    border: none;
+    cursor: pointer;
+    height: 20px;
+    margin-top: 8px;
+    opacity: 0.4;
+    padding: 0px 0px 0px 0px;
+    width: 20px;
+}
+
+.toggler.icon:hover {
+    opacity: 1.0;
+}
+
+.toggler.icon.minimize {
+    background-position: left -20px;
+}
+
 body.mobile .toggler,
 body.tablet .toggler {
     display: none;

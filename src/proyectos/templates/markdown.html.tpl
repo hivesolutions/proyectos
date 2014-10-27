@@ -22,7 +22,7 @@
                          alt="Fork me on GitHub" />
                 </a>
             {% endif %}
-            <span class="toggler">maximize</span>
+            <span class="toggler icon"></span>
             <div class="contents">{{ contents|safe }}</div>
             <div class="footer">
                 <div class="product">{{ title[0] }}</div>
