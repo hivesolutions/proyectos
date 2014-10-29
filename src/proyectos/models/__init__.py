@@ -3,4 +3,4 @@
 
 from . import repo
 
-from .repo import *
+from .repo import Repo

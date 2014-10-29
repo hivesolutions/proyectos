@@ -3,4 +3,4 @@
 
 from . import logic
 
-from .logic import *
+from .logic import get_api, update_repos, sync_repos, ensure_repos, ensure_repo

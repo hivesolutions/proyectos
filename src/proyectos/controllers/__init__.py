@@ -4,5 +4,5 @@
 from . import base
 from . import repo
 
-from .base import *
-from .repo import *
+from .base import BaseController
+from .repo import RepoController

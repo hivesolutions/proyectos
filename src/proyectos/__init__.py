@@ -9,4 +9,4 @@ from . import main
 from .controllers import *
 from .models import *
 from .util import *
-from .main import *
+from .main import ProyectosApp
