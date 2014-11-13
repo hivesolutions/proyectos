@@ -4,7 +4,7 @@
 import appier
 import appier_extras
 
-from proyectos import scheduler
+from . import scheduler
 
 class ProyectosApp(appier.WebApp):
 
