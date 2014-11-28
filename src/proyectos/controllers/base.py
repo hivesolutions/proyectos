@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import os
-import mimetypes
 
 import appier
 import appier_extras
@@ -82,25 +81,4 @@ class BaseController(appier.Controller):
         _repo = proyectos.Repo.get(name = repo)
         repo_path = _repo.repo_path()
         resource_path = os.path.join(repo_path, reference)
-
-        if not os.path.exists(resource_path): raise appier.NotFoundError(
-            message = "Resource '%s' not found in repository" % reference,
-            code = 404
-        )
-
-        type, _encoding = mimetypes.guess_type(
-            resource_path, strict = True
-        )
-        self.request.set_content_type(type)
-
-        size = os.path.getsize(resource_path)
-        yield size
-
-        file = open(resource_path, "rb")
-        try:
-            while True:
-                contents = file.read(4096)
-                if not contents: break
-                yield contents
-        finally:
-            file.close()
+        return self.send_path(resource_path, url_path = reference, cache = False)
