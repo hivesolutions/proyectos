@@ -81,4 +81,4 @@ class BaseController(appier.Controller):
         _repo = proyectos.Repo.get(name = repo)
         repo_path = _repo.repo_path()
         resource_path = os.path.join(repo_path, reference)
-        return self.send_path(resource_path, url_path = reference, cache = False)
+        return self.send_path(resource_path, url_path = reference)
