@@ -12,6 +12,7 @@ class RepoController(appier.Controller):
         repos = proyectos.Repo.find(sort = [("full_name", 1),])
         return self.template(
             "repo/list.html.tpl",
+            link = "repos",
             repos = repos
         )
 

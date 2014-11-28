@@ -6,5 +6,9 @@
     <script type="text/javascript" src="{{ url_for('static', filename = 'js/main.js') }}"></script>
 {% endblock %}
 {% block links %}
-    <a class="selected" href="#">repos</a>
+	{% if link == "repos" %}
+        <a href="{{ url_for('list_customers') }}" class="active">repos</a>
+    {% else %}
+        <a href="{{ url_for('list_customers') }}">repos</a>
+    {% endif %}
 {% endblock %}
