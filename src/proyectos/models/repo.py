@@ -73,6 +73,10 @@ class Repo(appier_extras.admin.Base):
     def list_names(cls):
         return ["full_name", "status"]
 
+    @classmethod
+    def order_name(self):
+        return ["full_name", 1]
+
     def enable_s(self):
         self.status = True
         self.save()
