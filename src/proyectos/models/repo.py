@@ -11,13 +11,13 @@ class Repo(appier_extras.admin.Base):
 
     name = appier.field(
         index = True,
-        immutable = True,
-        default = True
+        immutable = True
     )
 
     full_name = appier.field(
         index = True,
-        immutable = True
+        immutable = True,
+        default = True
     )
 
     title = appier.field(
