@@ -43,7 +43,7 @@ jQuery(document).ready(function() {
                         // with the "new" look and feel (as expected)
                         var isBody = base.is("body");
                         isBody && setTimeout(function() {
-                                    document.location = document.location;
+                                    document.location.hash = document.location.hash;
                                 });
                     });
         });
