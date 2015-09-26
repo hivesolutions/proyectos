@@ -46,7 +46,7 @@ class BaseController(appier.Controller):
         finally: file.close()
 
         nodes = parser.parse(contents)
-        generator = generator.generate(nodes)
+        generator.generate(nodes)
 
         value = buffer.getvalue()
         buffer.close()
