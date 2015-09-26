@@ -39,7 +39,7 @@ class BaseController(appier.Controller):
         )
 
         parser = appier_extras.MarkdownParser()
-        generator = appier_extras.MarkdownHTML(file = buffer)
+        generator = appier_extras.MarkdownHTML(file = buffer, encoding = None)
 
         file = open(page_path, "rb")
         try: contents = file.read()

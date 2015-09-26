@@ -158,6 +158,26 @@ a.hover img {
     text-decoration: none;
 }
 
+a.anchor {
+    color: #2d2d2d;
+    display: none;
+    margin-left: 4px;
+}
+
+a.anchor:hover {
+    color: #3668c6;
+    padding-bottom: 0px;
+    text-decoration: none;
+}
+
+h1:hover > a.anchor,
+h2:hover > a.anchor,
+h3:hover > a.anchor,
+h4:hover > a.anchor,
+h5:hover > a.anchor {
+    display: inline;
+}
+
 pre[class*="language-"] {
     background-color: #f6f6f6;
     border: 1px solid #dadada;
@@ -232,7 +252,7 @@ body.tablet .toggler {
 }
 
 .github-fork {
-    border: 0px;
+    border: none;
     position: fixed;
     right: 0px;
     top: 0px;
