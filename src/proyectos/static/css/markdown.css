@@ -150,6 +150,7 @@ a.hover {
 }
 
 a img {
+    max-width: 100%;
     text-decoration: none;
 }
 
