@@ -18,7 +18,7 @@ ENV GA ""
 ADD requirements.txt /
 ADD src /src
 
-RUN apt-get update && apt-get install -y -q python python-setuptools python-dev python-pip
+RUN apt-get update && apt-get install -y -q python python-setuptools python-dev python-pip git
 RUN pip install -r /requirements.txt && pip install --upgrade netius
 
 CMD python /src/proyectos/main.py
