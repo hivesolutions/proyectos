@@ -16,6 +16,7 @@ ENV PYTHONPATH=/src
 ENV GA ""
 
 ADD requirements.txt /
+ADD extra.txt /
 ADD src /src
 
 RUN apt-get update && apt-get install -y -q python python-setuptools python-dev python-pip git
