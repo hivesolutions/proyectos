@@ -103,7 +103,8 @@ class Repo(appier_extras.admin.Base):
             (self.full_name, repo_path)
         )
 
-        if is_new: cmd = ["git", "clone", self.ssh_url, repo_path]
+        auth_url = self.auth_url()
+        if is_new: cmd = ["git", "clone", auth_url, repo_path]
         else: cmd = ["git", "pull"]
 
         if is_new: popen = subprocess.Popen(cmd)
@@ -148,3 +149,9 @@ class Repo(appier_extras.admin.Base):
 
     def repr(self):
         return self.title if self.title else self.name
+
+    def auth_url(self, username = None, password = None):
+        username = username or appier.conf("GITHUB_USERNAME", None)
+        password = password or appier.conf("GITHUB_PASSWORD", None)
+        schema, remainder = self.clone_url.split("://", 1)
+        return "%s://%s:%s@%s" % (schema, username, password, remainder)
