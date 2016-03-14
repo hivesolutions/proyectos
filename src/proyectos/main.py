@@ -8,13 +8,14 @@ from proyectos import scheduler
 
 class ProyectosApp(appier.WebApp):
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         appier.WebApp.__init__(
             self,
             name = "proyectos",
             parts = (
                 appier_extras.AdminPart,
-            )
+            ),
+            *args, **kwargs
         )
         self.scheduler = scheduler.Scheduler(self)
 
