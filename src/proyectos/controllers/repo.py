@@ -8,6 +8,7 @@ import proyectos
 class RepoController(appier.Controller):
 
     @appier.route("/repos", "GET")
+    @appier.ensure(token = "admin")
     def list(self):
         repos = proyectos.Repo.find(sort = [("full_name", 1),])
         return self.template(
@@ -17,6 +18,7 @@ class RepoController(appier.Controller):
         )
 
     @appier.route("/repos/<int:id>/enable", "GET")
+    @appier.ensure(token = "admin")
     def enable(self, id):
         repo = proyectos.Repo.get(id = id)
         repo.enable_s()
@@ -25,6 +27,7 @@ class RepoController(appier.Controller):
         )
 
     @appier.route("/repos/<int:id>/disable", "GET")
+    @appier.ensure(token = "admin")
     def disable(self, id):
         repo = proyectos.Repo.get(id = id)
         repo.disable_s()
