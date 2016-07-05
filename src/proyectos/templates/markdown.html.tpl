@@ -26,7 +26,7 @@
             <div class="contents">{{ contents|safe }}</div>
             <div class="footer">
                 <div class="product">{{ title[0] }}</div>
-                <div class="slogan">proudly built by <a href="http://hive.pt">Hive Solutions</a></div>
+                <div class="slogan">Proudly built by <a href="http://hive.pt">Hive Solutions</a></div>
             </div>
         </div>
         {% include "analytics.html.tpl" %}
