@@ -14,7 +14,7 @@
         <script type="text/javascript" src="//libs.bemisc.com/uxf/js/ux-min.js"></script>
         <script type="text/javascript" src="{{ url_for('static', filename = 'js/markdown.js') }}"></script>
     </head>
-    <body class="ux wait-load side-color flat">
+    <body class="ux wait-load side-color flat {{ theme|default('', True) }}">
         <div class="wrapper">
             {% if github %}
                 <a href="{{ github }}">

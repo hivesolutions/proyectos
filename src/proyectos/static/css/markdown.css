@@ -108,6 +108,11 @@ body {
     margin: 0px 0px 0px 0px;
 }
 
+body.opensans {
+    font-family: "Open Sans", Arial, sans-serif;
+    font-style: normal;
+}
+
 body.side-color {
     background-color: #f4f4f4;
 }

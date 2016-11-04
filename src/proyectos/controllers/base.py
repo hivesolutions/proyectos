@@ -19,6 +19,9 @@ class BaseController(appier.Controller):
     @appier.route("/render/<str:repo>/", "GET")
     @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):page>.md", "GET")
     def render(self, repo, page = None):
+        theme = appier.conf("THEME", None)
+        theme = self.get_field("theme", theme)
+
         buffer = appier.legacy.StringIO()
 
         _repo = proyectos.Repo.get(name = repo)
@@ -53,6 +56,7 @@ class BaseController(appier.Controller):
 
         return self.template(
             "markdown.html.tpl",
+            theme = theme,
             name = name,
             title = title,
             description = description,
