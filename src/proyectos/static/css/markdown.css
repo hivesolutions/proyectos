@@ -113,6 +113,11 @@ body.opensans {
     font-style: normal;
 }
 
+body.merriweather {
+    font-family: "Merriweather", "Open Sans", Arial, sans-serif;
+    font-style: normal;
+}
+
 body.side-color {
     background-color: #f4f4f4;
 }
