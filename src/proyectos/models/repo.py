@@ -72,7 +72,7 @@ class Repo(appier_extras.admin.Base):
 
     @classmethod
     def list_names(cls):
-        return ["full_name", "status"]
+        return ["full_name", "name", "status"]
 
     @classmethod
     def order_name(self):
