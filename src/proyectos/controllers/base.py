@@ -24,7 +24,7 @@ class BaseController(appier.Controller):
 
         buffer = appier.legacy.StringIO()
 
-        _repo = proyectos.Repo.get(name = repo)
+        _repo = proyectos.Repo.get(name = repo, enabled = True)
         name = _repo.name
         description = _repo.description
         github = None if page else _repo.html_url
