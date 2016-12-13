@@ -22,14 +22,12 @@ class BaseController(appier.Controller):
         theme = appier.conf("THEME", None)
         theme = self.get_field("theme", theme)
 
-        buffer = appier.legacy.StringIO()
-
-        repos = set((repo, repo.replace("_", "-"), repo.replace("-", "_")))
+        alias_l = set((repo, repo.replace("_", "-"), repo.replace("-", "_")))
         _repo = None
 
-        for repo in repos:
+        for alias in alias_l:
             _repo = proyectos.Repo.get(
-                name = repo,
+                name = alias,
                 enabled = True,
                 raise_e = False
             )
@@ -51,6 +49,7 @@ class BaseController(appier.Controller):
             code = 404
         )
 
+        buffer = appier.legacy.StringIO()
         parser = appier_extras.MarkdownParser()
         generator = appier_extras.MarkdownHTML(file = buffer, encoding = None)
 
