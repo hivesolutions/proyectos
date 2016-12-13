@@ -128,6 +128,10 @@ body.tablet {
     background-color: #ffffff;
 }
 
+body.mobile-s {
+    font-size: 13px;
+}
+
 h1 {
     margin: 24px 0px 24px 0px;
 }
@@ -209,6 +213,10 @@ body.flat pre[class*="language-"] {
     -webkit-box-shadow: none;
 }
 
+body.mobile-s pre[class*="language-"] {
+    font-size: 12px;
+}
+
 :not(pre) > code[class*="language-"] {
     background-color: #f2f2f2;
     border: 1px solid #dadada;
@@ -219,6 +227,10 @@ body.flat pre[class*="language-"] {
     margin: 0px 3px 0px 3px;
     padding: 3px 6px 3px 6px;
     word-wrap: break-word;
+}
+
+body.mobile-s :not(pre) > code[class*="language-"] {
+    font-size: 12px;
 }
 
 body.flat :not(pre) > code[class*="language-"] {
@@ -245,6 +257,10 @@ body.tablet blockquote {
     float: right;
     font-size: 12px;
     padding: 2px 10px 2px 10px;
+}
+
+body.mobile-s .toggler {
+    font-size: 11px;
 }
 
 .toggler:hover {
@@ -367,6 +383,10 @@ body.tablet .footer .product {
     color: #6d6d6d;
     font-size: 12px;
     margin: 12px 0px 12px 0px;
+}
+
+body.mobile-s .footer .slogan {
+    font-size: 11px;
 }
 
 .footer .slogan a {
