@@ -24,7 +24,7 @@ class BaseController(appier.Controller):
 
         buffer = appier.legacy.StringIO()
 
-        repos = (repo, repo.replace("_", "-"), repo.replace("-", "_"))
+        repos = set((repo, repo.replace("_", "-"), repo.replace("-", "_")))
         _repo = None
 
         for repo in repos:
