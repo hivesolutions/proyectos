@@ -24,7 +24,17 @@ class BaseController(appier.Controller):
 
         buffer = appier.legacy.StringIO()
 
-        _repo = proyectos.Repo.get(name = repo, enabled = True)
+        repos = (repo, repo.replace("_", "-"), repo.replace("-", "_"))
+        _repo = None
+
+        for repo in repos:
+            _repo = proyectos.Repo.get(
+                name = repo,
+                enabled = True,
+                raise_e = False
+            )
+            if _repo: break
+
         name = _repo.name
         description = _repo.description
         github = None if page else _repo.html_url
