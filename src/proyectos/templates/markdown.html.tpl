@@ -18,7 +18,7 @@
         <div class="wrapper">
             {% if github %}
                 <a href="{{ github }}">
-                    <img class="github-fork" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
+                    <img class="github-fork" src="//s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
                          alt="Fork me on GitHub" />
                 </a>
             {% endif %}
