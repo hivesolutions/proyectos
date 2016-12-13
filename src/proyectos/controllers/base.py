@@ -22,17 +22,7 @@ class BaseController(appier.Controller):
         theme = appier.conf("THEME", None)
         theme = self.get_field("theme", theme)
 
-        alias_l = set((repo, repo.replace("_", "-"), repo.replace("-", "_")))
-        _repo = None
-
-        for alias in alias_l:
-            _repo = proyectos.Repo.get(
-                name = alias,
-                enabled = True,
-                raise_e = False
-            )
-            if _repo: break
-
+        _repo = self._repo(repo)
         name = _repo.name
         description = _repo.description
         github = None if page else _repo.html_url
@@ -76,11 +66,7 @@ class BaseController(appier.Controller):
 
     @appier.route("/render/<str:repo>/favicon.ico", "GET")
     def favicon(self, repo):
-        _repo = proyectos.Repo.get(
-            fields = ("favicon",),
-            rules = False,
-            name = repo
-        )
+        _repo = self._repo(repo, rules = False)
         favicon = _repo.favicon
         if not favicon: return self.send_static("images/favicon.ico")
         else: return self.send_file(
@@ -91,7 +77,29 @@ class BaseController(appier.Controller):
 
     @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):reference>", "GET")
     def resource(self, repo, reference):
-        _repo = proyectos.Repo.get(name = repo)
+        _repo = self._repo(repo)
         repo_path = _repo.repo_path()
         resource_path = os.path.join(repo_path, reference)
         return self.send_path(resource_path, url_path = reference)
+
+    @classmethod
+    def _repo(cls, repo, enabled = True, rules = True, raise_e = True):
+        _repo = None
+        alias_l = set((repo, repo.replace("_", "-"), repo.replace("-", "_")))
+
+        for alias in alias_l:
+            _repo = proyectos.Repo.get(
+                name = alias,
+                enabled = enabled,
+                rules = rules,
+                raise_e = False
+            )
+            if not _repo: continue
+            break
+
+        if raise_e and not _repo: raise appier.NotFoundError(
+            message = "Repository '%s' not found" % (repo),
+            code = 404
+        )
+
+        return _repo
