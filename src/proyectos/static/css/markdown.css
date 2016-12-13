@@ -130,6 +130,7 @@ body.tablet {
 
 body.mobile-s {
     font-size: 13px;
+    line-height: 24px;
 }
 
 h1 {
@@ -215,6 +216,7 @@ body.flat pre[class*="language-"] {
 
 body.mobile-s pre[class*="language-"] {
     font-size: 12px;
+    line-height: 18px;
 }
 
 :not(pre) > code[class*="language-"] {
