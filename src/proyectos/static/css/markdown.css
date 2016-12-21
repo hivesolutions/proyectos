@@ -194,6 +194,16 @@ h5:hover > a.anchor {
     display: inline;
 }
 
+ul,
+ol {
+    padding-left: 30px;
+}
+
+body.mobile-s ul,
+body.mobile-s ol {
+    padding-left: 24px;
+}
+
 pre[class*="language-"] {
     background-color: #f6f6f6;
     border: 1px solid #dadada;
