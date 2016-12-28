@@ -26,3 +26,5 @@ class ProyectosApp(appier.WebApp):
 if __name__ == "__main__":
     app = ProyectosApp()
     app.serve()
+else:
+    __path__ = []
