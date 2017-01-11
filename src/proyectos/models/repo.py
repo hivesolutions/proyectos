@@ -6,6 +6,7 @@ import subprocess
 
 import appier
 import appier_extras
+import shutil
 
 class Repo(appier_extras.admin.Base):
 
@@ -86,7 +87,11 @@ class Repo(appier_extras.admin.Base):
         self.status = False
         self.save()
 
-    def update(self, force = False):
+    def update(self):
+        if self.status: return self.update_enabled()
+        else: return self.update_disabled()
+
+    def update_enabled(self, force = False):
         if not self.status and not force: return
 
         repo_path = self.repo_path()
@@ -117,6 +122,16 @@ class Repo(appier_extras.admin.Base):
         raise appier.OperationalError(
             message = "Problem executing command: '%s'" % cmd_s
         )
+
+    def update_disabled(self, force = False):
+        if self.status and not force: return
+
+        repo_path = self.repo_path()
+
+        is_new = not os.path.exists(repo_path)
+        if is_new: return
+
+        shutil.rmtree(repo_path, ignore_errors = True)
 
     def repo_path(self, verify = False):
         repos_path = appier.conf("REPOS_PATH", "repos")
