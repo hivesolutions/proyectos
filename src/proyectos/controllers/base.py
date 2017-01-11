@@ -83,14 +83,14 @@ class BaseController(appier.Controller):
         return self.send_path(resource_path, url_path = reference)
 
     @classmethod
-    def _repo(cls, repo, enabled = True, rules = True, raise_e = True):
+    def _repo(cls, repo, status = True, rules = True, raise_e = True):
         _repo = None
         alias_l = set((repo, repo.replace("_", "-"), repo.replace("-", "_")))
 
         for alias in alias_l:
             _repo = proyectos.Repo.get(
                 name = alias,
-                enabled = enabled,
+                status = status,
                 rules = rules,
                 raise_e = False
             )
