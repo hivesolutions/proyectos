@@ -131,6 +131,11 @@ class Repo(appier_extras.admin.Base):
         is_new = not os.path.exists(repo_path)
         if is_new: return
 
+        self.logger.debug(
+            "Removing '%s' from '%s' ..." %
+            (self.full_name, repo_path)
+        )
+
         shutil.rmtree(repo_path, ignore_errors = True)
 
     def repo_path(self, verify = False):
