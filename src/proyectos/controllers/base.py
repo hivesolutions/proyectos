@@ -20,7 +20,7 @@ class BaseController(appier.Controller):
     @appier.route("/render/<str:repo>/<regex('[\:\.\/\s\w-]+'):page>.md", "GET")
     def render(self, repo, page = None):
         theme = appier.conf("THEME", None)
-        theme = self.get_field("theme", theme)
+        theme = self.field("theme", theme)
 
         _repo = self._repo(repo)
         name = _repo.name
