@@ -15,7 +15,10 @@ ul.repos li:hover {
     background-color: transparent;
 }
 
+input[type="checkbox"].button {
+    padding-bottom: 0px;
+}
+
 input[type="checkbox"].button:hover {
     border-bottom: none;
-    padding-bottom: 0px;
 }

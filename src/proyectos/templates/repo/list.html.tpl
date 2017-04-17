@@ -3,7 +3,7 @@
 {% block name %}Repos{% endblock %}
 {% block content %}
     <div class="quote">
-        We're only showing your public repositories below, you can find your private projects on GitHub.<br/>
+        We're showing both your private and public GitHub repositories below.<br/>
         Enable your projects below by flicking the switch.
     </div>
     <ul class="repos">
