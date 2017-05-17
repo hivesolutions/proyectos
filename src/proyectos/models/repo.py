@@ -167,11 +167,19 @@ class Repo(appier_extras.admin.Base):
             code = 404
         )
 
-    def repr(self):
-        return self.title if self.title else self.name
+    def repr(self, readable = True):
+        if self.title: return self.title
+        return self.readable if readable else self.name
 
     def auth_url(self, username = None, password = None):
         username = username or appier.conf("GITHUB_USERNAME", None)
         password = password or appier.conf("GITHUB_PASSWORD", None)
         schema, remainder = self.clone_url.split("://", 1)
         return "%s://%s:%s@%s" % (schema, username, password, remainder)
+
+    @property
+    def readable(self):
+        return appier.underscore_to_readable(
+            self.name,
+            capitalize = True
+        )
