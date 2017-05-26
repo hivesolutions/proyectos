@@ -76,7 +76,7 @@ class Repo(appier_extras.admin.Base):
         return ["full_name", "name", "status"]
 
     @classmethod
-    def order_name(self):
+    def order_name(cls):
         return ["full_name", 1]
 
     def enable_s(self):
