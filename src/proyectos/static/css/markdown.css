@@ -459,8 +459,16 @@ body.tablet .footer .product {
     margin: 12px 0px 12px 0px;
 }
 
+body.sourcesans .footer .slogan {
+    font-size: 13px;
+}
+
 body.mobile-s .footer .slogan {
     font-size: 11px;
+}
+
+body.sourcesans.mobile-s .footer .slogan {
+    font-size: 12px;
 }
 
 .footer .slogan a {
