@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Merriweather:300,300i,400,400i,700,700i,900,900i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i);
+
 @font-face {
     font-family: "Open Sans";
     font-style: normal;
@@ -88,6 +90,11 @@ body {
     color: #2d2d2d;
     font-family: "Merriweather", "Open Sans", Arial, sans-serif;
     font-size: 14px;
+    font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -khtml-font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
     font-style: italic;
     line-height: 26px;
@@ -96,6 +103,12 @@ body {
 
 body.opensans {
     font-family: "Open Sans", Arial, sans-serif;
+    font-style: normal;
+}
+
+body.sourcesans {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-size: 16px;
     font-style: normal;
 }
 
@@ -119,16 +132,44 @@ body.mobile-s {
     line-height: 24px;
 }
 
+body.sourcesans.mobile-s {
+    font-size: 14px;
+}
+
 h1 {
     margin: 24px 0px 24px 0px;
+}
+
+body.sourcesans h1 {
+    font-weight: 600;
 }
 
 h2 {
     margin: 38px 0px 14px 0px;
 }
 
+body.sourcesans h2 {
+    font-weight: 600;
+}
+
 h3 {
     margin: 18px 0px 14px 0px;
+}
+
+body.sourcesans h3 {
+    font-weight: 600;
+}
+
+h4 {
+    margin: 14px 0px 10px 0px;
+}
+
+body.sourcesans h4 {
+    font-weight: 600;
+}
+
+body.sourcesans strong {
+    font-weight: 600;
 }
 
 li {
@@ -194,7 +235,10 @@ pre[class*="language-"] {
     background-color: #f6f6f6;
     border: 1px solid #dadada;
     box-shadow: 0px 1px 3px #eeeeee;
+    -o-box-shadow: 0px 1px 3px #eeeeee;
+    -ms-box-shadow: 0px 1px 3px #eeeeee;
     -moz-box-shadow: 0px 1px 3px #eeeeee;
+    -khtml-box-shadow: 0px 1px 3px #eeeeee;
     -webkit-box-shadow: 0px 1px 3px #eeeeee;
     font-family: Consolas, Monaco;
     font-size: 13px;
@@ -206,7 +250,10 @@ pre[class*="language-"] {
 body.flat pre[class*="language-"] {
     border: none;
     box-shadow: none;
+    -o-box-shadow: none;
+    -ms-box-shadow: none;
     -moz-box-shadow: none;
+    -khtml-box-shadow: none;
     -webkit-box-shadow: none;
 }
 
@@ -219,6 +266,11 @@ body.mobile-s pre[class*="language-"] {
     background-color: #f2f2f2;
     border: 1px solid #dadada;
     border-radius: 0px 0px 0px 0px;
+    -o-border-radius: 0px 0px 0px 0px;
+    -ms-border-radius: 0px 0px 0px 0px;
+    -moz-border-radius: 0px 0px 0px 0px;
+    -khtml-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 0px 0px 0px 0px;
     font-family: Consolas, Monaco;
     font-size: 13px;
     font-style: normal;
@@ -272,12 +324,22 @@ body.mobile-s .toggler {
     height: 20px;
     margin-top: 8px;
     opacity: 0.5;
+    -o-opacity: 0.5;
+    -ms-opacity: 0.5;
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    -webkit-opacity: 0.5;
     padding: 0px 0px 0px 0px;
     width: 20px;
 }
 
 .toggler.icon:hover {
     opacity: 1.0;
+    -o-opacity: 1.0;
+    -ms-opacity: 1.0;
+    -moz-opacity: 1.0;
+    -khtml-opacity: 1.0;
+    -webkit-opacity: 1.0;
 }
 
 .toggler.icon.minimize {
@@ -309,7 +371,10 @@ body.tablet .github-fork {
     min-width: 240px;
     padding: 8px 24px 8px 24px;
     transition: max-width 0.35s;
+    -o-transition: max-width 0.35s;
+    -ms-transition: max-width 0.35s;
     -moz-transition: max-width 0.35s;
+    -khtml-transition: max-width 0.35s;
     -webkit-transition: max-width 0.35s;
 }
 
@@ -330,13 +395,21 @@ body.border .wrapper {
 
 body.side-color .wrapper {
     box-shadow: 0px 0px 4px #bbbbbb;
+    -o-box-shadow: 0px 0px 4px #bbbbbb;
+    -ms-box-shadow: 0px 0px 4px #bbbbbb;
     -moz-box-shadow: 0px 0px 4px #bbbbbb;
+    -khtml-box-shadow: 0px 0px 4px #bbbbbb;
     -webkit-box-shadow: 0px 0px 4px #bbbbbb;
 }
 
 body.mobile .wrapper,
 body.tablet .wrapper {
     box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     padding: 0px 12px 0px 12px;
     width: 100%;
 }
@@ -345,7 +418,10 @@ body.uwide .wrapper,
 body.mobile .wrapper,
 body.tablet .wrapper {
     box-shadow: none;
+    -o-box-shadow: none;
+    -ms-box-shadow: none;
     -moz-box-shadow: none;
+    -khtml-box-shadow: none;
     -webkit-box-shadow: none;
 }
 
@@ -389,5 +465,10 @@ body.mobile-s .footer .slogan {
 
 .footer .slogan a {
     color: #4d4d4d;
+    font-size: 13px;
     font-weight: bold;
+}
+
+body.sourcesans .footer .slogan a {
+    font-weight: 600;
 }
