@@ -8,7 +8,7 @@ import github
 import proyectos
 
 def get_api():
-    api = github.Api(
+    api = github.API(
         username = appier.conf("GITHUB_USERNAME"),
         password = appier.conf("GITHUB_PASSWORD")
     )

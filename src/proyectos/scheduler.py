@@ -31,7 +31,7 @@ class Scheduler(appier.Scheduler):
         self.load_github()
 
     def load_github(self):
-        self.github = github.Api(
+        self.github = github.API(
             username = appier.conf("GITHUB_USERNAME"),
             password = appier.conf("GITHUB_PASSWORD")
         )
