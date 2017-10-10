@@ -145,7 +145,11 @@ body.sourcesans h1 {
 }
 
 body.mobile-s h1 {
-    margin: 16px 0px 16px 0px;
+    margin: 20px 0px 20px 0px;
+}
+
+body.mobile-s h1 > a > img {
+    max-width: 80%;
 }
 
 h2 {
