@@ -99,6 +99,7 @@ body {
     font-style: italic;
     line-height: 26px;
     margin: 0px 0px 0px 0px;
+    word-break: break-word;
 }
 
 body.opensans {
