@@ -35,8 +35,7 @@ class BaseController(appier.Controller):
         else: title = _repo.repr()
 
         if not os.path.exists(page_path): raise appier.NotFoundError(
-            message = "Page '%s' not found in repository" % page_path,
-            code = 404
+            message = "Page '%s' not found in repository" % page_path
         )
 
         buffer = appier.legacy.StringIO()
@@ -98,8 +97,7 @@ class BaseController(appier.Controller):
             break
 
         if raise_e and not _repo: raise appier.NotFoundError(
-            message = "Repository '%s' not found" % (repo),
-            code = 404
+            message = "Repository '%s' not found" % (repo)
         )
 
         return _repo
