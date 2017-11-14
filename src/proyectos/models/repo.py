@@ -46,7 +46,9 @@ class Repo(appier_extras.admin.Base):
         enum = appier_extras.admin.Base.ENABLE_S
     )
 
-    ga = appier.field()
+    ga = appier.field(
+        description = "GA"
+    )
 
     favicon = appier.field(
         type = appier.File,
