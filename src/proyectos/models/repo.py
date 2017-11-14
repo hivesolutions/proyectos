@@ -27,16 +27,19 @@ class Repo(appier_extras.admin.Base):
 
     html_url = appier.field(
         immutable = True,
-        meta = "url"
+        meta = "url",
+        description = "HTML URL"
     )
 
     clone_url = appier.field(
         immutable = True,
-        meta = "url"
+        meta = "url",
+        description = "Clone URL"
     )
 
     ssh_url = appier.field(
-        immutable = True
+        immutable = True,
+        description = "SSH URL"
     )
 
     status = appier.field(
