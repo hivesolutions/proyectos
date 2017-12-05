@@ -12,6 +12,10 @@ to spend many resources or to high to create a long set
 of time between external interactions """
 
 class Scheduler(appier.Scheduler):
+    """
+    Scheduler class that is responsible for the update
+    of the repositories (sync operation).
+    """
 
     def __init__(self, *args, **kwargs):
         appier.Scheduler.__init__(
