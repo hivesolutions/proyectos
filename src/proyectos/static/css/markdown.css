@@ -252,6 +252,45 @@ body.mobile-s ol {
     padding-left: 24px;
 }
 
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display: block;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 16px 0px 16px 0px;
+    overflow: auto;
+    width: 100%;
+}
+
+table tr {
+    border-top: 1px solid #c6cbd1;
+}
+
+table td,
+table th {
+    border: 1px solid #dfe2e5;
+    padding: 6px 13px 6px 13px;
+}
+
+table th {
+    text-align: center;
+}
+
+table td {
+    text-align: left;
+}
+
+table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+
 pre[class*="language-"] {
     background-color: #f6f6f6;
     border: 1px solid #dadada;
