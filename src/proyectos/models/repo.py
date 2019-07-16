@@ -69,6 +69,7 @@ class Repo(appier_extras.admin.Base):
 
             appier.not_null("html_url"),
             appier.not_empty("html_url"),
+            appier.is_url("html_url"),
 
             appier.not_null("clone_url"),
             appier.not_empty("clone_url"),
