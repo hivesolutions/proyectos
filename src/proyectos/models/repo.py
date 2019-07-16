@@ -114,19 +114,23 @@ class Repo(appier_extras.admin.Base):
         )
 
         auth_url = self.auth_url()
-        if is_new: cmd = ["git", "clone", auth_url, repo_path]
-        else: cmd = ["git", "pull"]
-
-        if is_new: popen = subprocess.Popen(cmd)
-        else: popen = subprocess.Popen(cmd, cwd = repo_path)
-
-        result = popen.wait()
-        if result == 0: return
-
-        cmd_s = " ".join(cmd)
-        raise appier.OperationalError(
-            message = "Problem executing command: '%s'" % cmd_s
+        if is_new: cmds = (["git", "clone", auth_url, repo_path],)
+        else: cmds = (
+            ["git", "remote", "set-url", "origin", auth_url],
+            ["git", "pull"]
         )
+
+        for cmd in cmds:
+            if is_new: popen = subprocess.Popen(cmd)
+            else: popen = subprocess.Popen(cmd, cwd = repo_path)
+
+            result = popen.wait()
+            if result == 0: continue
+
+            cmd_s = " ".join(cmd)
+            raise appier.OperationalError(
+                message = "Problem executing command: '%s'" % cmd_s
+            )
 
     def update_disabled(self, force = False):
         if self.status and not force: return
