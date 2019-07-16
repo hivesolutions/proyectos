@@ -10,4 +10,4 @@ Current implementation uses both the markdown parser from [Appier Framework Extr
 
 | Name | Type | Description |
 | ----- | ----- | ----- |
-| **THEME** | `str` | Sets the default theme to be used by the system (eg: `opensans`, `merriweather`)  (defaults to `None`). |
+| **THEME** | `str` | Sets the default theme to be used by the system (eg: `opensans`, `merriweather`) (defaults to `None`). |
