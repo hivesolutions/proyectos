@@ -182,8 +182,10 @@ class Repo(appier_extras.admin.Base):
         return self.readable if readable else self.name
 
     def auth_url(self, username = None, password = None):
-        username = username or appier.conf("GITHUB_USERNAME", None)
-        password = password or appier.conf("GITHUB_PASSWORD", None)
+        username = username or appier.conf("GITHUB_AUTH_USERNAME", None) or\
+            appier.conf("GITHUB_USERNAME", None)
+        password = password or appier.conf("GITHUB_AUTH_PASSWORD", None) or \
+            appier.conf("GITHUB_PASSWORD", None)
         schema, remainder = self.clone_url.split("://", 1)
         return "%s://%s:%s@%s" % (schema, username, password, remainder)
 

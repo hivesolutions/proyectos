@@ -37,7 +37,8 @@ class Scheduler(appier.Scheduler):
     def load_github(self):
         self.github = github.API(
             username = appier.conf("GITHUB_USERNAME"),
-            password = appier.conf("GITHUB_PASSWORD")
+            password = appier.conf("GITHUB_PASSWORD"),
+            access_token = appier.conf("GITHUB_TOKEN")
         )
 
     def check_repos(self):
