@@ -8,6 +8,8 @@ Current implementation uses both the markdown parser from [Appier Framework Extr
 
 ## Configuration
 
-| Name | Type | Description |
-| ----- | ----- | ----- |
-| **THEME** | `str` | Sets the default theme to be used by the system (eg: `opensans`, `merriweather`) (defaults to `None`). |
+| Name                     | Type  | Default | Description                                                                       |
+| ------------------------ | ----- | ------- | --------------------------------------------------------------------------------- |
+| **THEME**                | `str` | `None`  | Sets the default theme to be used by the system (eg: `opensans`, `merriweather`). |
+| **GITHUB_AUTH_USERNAME** | `str` | `None`  | The username to be used for git clone operations.                                 |
+| **GITHUB_AUTH_PASSWORD** | `str` | `None`  | The password to be used for git clone operations.                                 |
