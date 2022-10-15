@@ -79,6 +79,10 @@ class BaseController(appier.Controller):
         _repo = self._repo(repo)
         repo_path = _repo.repo_path()
         resource_path = os.path.join(repo_path, reference)
+        resource_path = os.path.normpath(resource_path)
+        if ".git" in resource_path: raise appier.NotFoundError(
+            message = "Resource not found or invalid"
+        )
         return self.send_path(resource_path, url_path = reference)
 
     @classmethod
