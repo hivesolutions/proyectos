@@ -1,5 +1,5 @@
 appier
-appier_extras
+appier-extras
 jinja2
 pymongo
-github_api_python
+github-api-python
