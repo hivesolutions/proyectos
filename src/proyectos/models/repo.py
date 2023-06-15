@@ -151,6 +151,7 @@ class Repo(appier_extras.admin.Base):
     def repo_path(self, verify = False):
         repos_path = appier.conf("REPOS_PATH", "repos")
         repos_path = os.path.abspath(repos_path)
+        repos_path = os.path.normpath(repos_path)
         repo_path = os.path.join(repos_path, self.name)
 
         if not verify: return repo_path

@@ -29,7 +29,16 @@ class BaseController(appier.Controller):
         ga = _repo.ga or appier.conf("GA")
         repo_path = _repo.repo_path()
         index_path = _repo.index_path()
-        page_path = os.path.join(repo_path, page + ".md") if page else index_path
+        if page:
+            page_path = os.path.join(repo_path, page + ".md")
+            page_path = os.path.abspath(page_path)
+            page_path = os.path.normpath(page_path)
+            if not page_path.startswith(repo_path):
+                raise appier.SecurityError(
+                    message = "Insecure path '%s'" % page
+                )
+        else:
+            page_path = index_path
 
         if page: title = "%s / %s" % (_repo.repr(), page.split("/")[-1])
         else: title = _repo.repr()
@@ -79,7 +88,12 @@ class BaseController(appier.Controller):
         _repo = self._repo(repo)
         repo_path = _repo.repo_path()
         resource_path = os.path.join(repo_path, reference)
+        resource_path = os.path.abspath(resource_path)
         resource_path = os.path.normpath(resource_path)
+        if not resource_path.startswith(repo_path):
+            raise appier.SecurityError(
+                message = "Insecure path '%s'" % reference
+            )
         if ".git" in resource_path: raise appier.NotFoundError(
             message = "Resource not found or invalid"
         )
