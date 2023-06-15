@@ -415,9 +415,11 @@ body.tablet .toggler {
 
 .github-fork {
     border: none;
+    height: 149px;
     position: fixed;
     right: 0px;
     top: 0px;
+    width: 149px;
 }
 
 body.uwide .github-fork,
