@@ -24,7 +24,7 @@ class ProyectosApp(appier.WebApp):
         self.scheduler.start()
 
     def _version(self):
-        return "0.1.0"
+        return "0.1.1"
 
     def _description(self):
         return "Proyectos"
