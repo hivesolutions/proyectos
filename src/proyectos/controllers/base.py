@@ -92,7 +92,8 @@ class BaseController(appier.Controller):
         resource_path = os.path.normpath(resource_path)
         if not resource_path.startswith(repo_path):
             raise appier.SecurityError(
-                message = "Insecure path '%s'" % reference
+                message = "Insecure path '%s'" % reference,
+                code = 403
             )
         if ".git" in resource_path: raise appier.NotFoundError(
             message = "Resource not found or invalid"
