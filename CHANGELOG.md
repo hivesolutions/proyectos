@@ -17,4 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+*
+
+## [1.31.1] - 2023-05-31
+
+### Fixed
+
 * Major security issue with random access to file system

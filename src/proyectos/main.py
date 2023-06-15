@@ -23,6 +23,15 @@ class ProyectosApp(appier.WebApp):
         appier.WebApp.start(self)
         self.scheduler.start()
 
+    def _version(self):
+        return "0.1.0"
+
+    def _description(self):
+        return "Proyectos"
+
+    def _observations(self):
+        return "Project page generation from GitHub repository"
+
 if __name__ == "__main__":
     app = ProyectosApp()
     app.serve()
