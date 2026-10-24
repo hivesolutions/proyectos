@@ -109,6 +109,7 @@ class BaseController(appier.Controller):
             _repo = proyectos.Repo.get(
                 name = alias,
                 status = status,
+                private = False,
                 rules = rules,
                 raise_e = False
             )

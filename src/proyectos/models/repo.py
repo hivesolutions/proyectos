@@ -49,6 +49,12 @@ class Repo(appier_extras.admin.Base):
         enum = appier_extras.admin.Base.ENABLE_S
     )
 
+    private = appier.field(
+        type = bool,
+        index = True,
+        description = "Private"
+    )
+
     ga = appier.field(
         description = "GA"
     )
@@ -79,13 +85,16 @@ class Repo(appier_extras.admin.Base):
 
     @classmethod
     def list_names(cls):
-        return ["full_name", "name", "status"]
+        return ["full_name", "name", "status", "private"]
 
     @classmethod
     def order_name(cls):
         return ["full_name", 1]
 
     def enable_s(self):
+        if not self.is_public: raise appier.OperationalError(
+            message = "Private repositories cannot be enabled"
+        )
         self.status = True
         self.save()
 
@@ -94,11 +103,12 @@ class Repo(appier_extras.admin.Base):
         self.save()
 
     def update(self):
-        if self.status: return self.update_enabled()
-        else: return self.update_disabled()
+        if self.status and self.is_public: return self.update_enabled()
+        else: return self.update_disabled(force = True)
 
     def update_enabled(self, force = False):
         if not self.status and not force: return
+        if not self.is_public: return
 
         repo_path = self.repo_path()
 
@@ -189,6 +199,10 @@ class Repo(appier_extras.admin.Base):
             appier.conf("GITHUB_PASSWORD", None)
         schema, remainder = self.clone_url.split("://", 1)
         return "%s://%s:%s@%s" % (schema, username, password, remainder)
+
+    @property
+    def is_public(self):
+        return self.private == False
 
     @property
     def readable(self):
