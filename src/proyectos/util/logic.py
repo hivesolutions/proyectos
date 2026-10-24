@@ -38,17 +38,33 @@ def ensure_repos(repos):
     return _repos
 
 def ensure_repo(repo):
-    _repo = proyectos.Repo.get(
-        full_name = repo["full_name"],
-        raise_e = False
-    )
-    if _repo: return _repo
+    private = repo.get("private", True)
+    owner, name = repo["full_name"].split("/", 1)
+    full_names = []
+    for alias in (name, name.replace("-", "_"), name.replace("_", "-")):
+        full_name = owner + "/" + alias
+        if full_name in full_names: continue
+        full_names.append(full_name)
+    _repos = []
+    for full_name in full_names:
+        _repo = proyectos.Repo.get(
+            full_name = full_name,
+            raise_e = False
+        )
+        if _repo: _repos.append(_repo)
+    for _repo in _repos:
+        if _repo.private == private: continue
+        _repo.private = private
+        if private: _repo.status = False
+        _repo.save()
+    if _repos: return _repos[0]
     _repo = proyectos.Repo(
         name = repo["name"],
         full_name = repo["full_name"],
         html_url = repo["html_url"],
         clone_url = repo["clone_url"],
         ssh_url = repo["ssh_url"],
+        private = private,
         status = False
     )
     _repo.save()
