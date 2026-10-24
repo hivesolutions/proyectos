@@ -28,6 +28,7 @@ class Scheduler(appier.Scheduler):
     def tick(self):
         appier.Scheduler.tick(self)
         self.check_repos()
+        self.check_visibility()
         self.update_repos()
 
     def load(self):
@@ -44,6 +45,10 @@ class Scheduler(appier.Scheduler):
     def check_repos(self):
         self.logger.debug("Checking github repos ...")
         proyectos.sync_repos(api = self.github, ensure = True)
+
+    def check_visibility(self):
+        self.logger.debug("Checking github repos visibility ...")
+        proyectos.check_visibility(api = self.github)
 
     def update_repos(self):
         self.logger.debug("Updating github repos ...")
