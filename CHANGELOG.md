@@ -18,6 +18,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 * Private GitHub repositories are never served, cloned or enabled
+* Visibility of every enabled repository checked against GitHub on each sync
+* Credentials no longer written to the logs when a git command fails
+* One failing repository no longer stops the update of the others
 
 ## [0.1.1] - 2023-06-15
 

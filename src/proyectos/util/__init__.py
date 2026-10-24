@@ -3,4 +3,4 @@
 
 from . import logic
 
-from .logic import get_api, update_repos, sync_repos, ensure_repos, ensure_repo
+from .logic import get_api, update_repos, check_visibility, sync_repos, ensure_repos, ensure_repo

@@ -138,7 +138,7 @@ class Repo(appier_extras.admin.Base):
             result = popen.wait()
             if result == 0: continue
 
-            cmd_s = " ".join(cmd)
+            cmd_s = " ".join(cmd).replace(auth_url, self.clone_url)
             raise appier.OperationalError(
                 message = "Problem executing command: '%s'" % cmd_s
             )

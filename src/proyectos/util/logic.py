@@ -18,7 +18,33 @@ def get_api():
 def update_repos(full = True):
     if full: repos = proyectos.Repo.find()
     else: repos = proyectos.Repo.find(status = True)
-    for repo in repos: repo.update()
+    for repo in repos:
+        try: repo.update()
+        except Exception as exception:
+            repo.logger.warning(
+                "Problem updating '%s': %s" %
+                (repo.full_name, exception)
+            )
+
+def check_visibility(api = None):
+    api = api or get_api()
+    for repo in proyectos.Repo.find(status = True):
+        owner, name = repo.full_name.split("/", 1)
+        try:
+            _repo = api.get_repo(owner, name)
+            if not "private" in _repo and "url" in _repo:
+                _repo = api.get(_repo["url"])
+        except appier.HTTPError as exception:
+            if not getattr(exception, "code", None) == 404: continue
+            _repo = dict(private = True)
+        except Exception:
+            continue
+        if not "private" in _repo: continue
+        private = _repo["private"]
+        if repo.private == private: continue
+        repo.private = private
+        if private: repo.status = False
+        repo.save()
 
 def sync_repos(api = None, ensure = True):
     api = api or get_api()
